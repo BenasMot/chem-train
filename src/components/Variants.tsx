@@ -19,7 +19,7 @@ export const Variants = (
     const variants = [correctValue, ...otherValues].map((value) => ({
       value,
       onClick: () => onSelect(value),
-    }));
+    }), []);
     const order = severalRandom(variants.length, variants.length);
     const reorderedVariants = order.map((index) => variants[index]);
 
