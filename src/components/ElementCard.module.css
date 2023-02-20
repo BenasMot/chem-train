@@ -1,0 +1,18 @@
+.elementCardTop {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.elementCardBottom {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.smallCard {
+  flex: 1;
+}
+
+.missing {
+  color: red !important;
+  font-weight: bolder !important;
+}
