@@ -26,8 +26,10 @@ const removeValueFromElementSummary = (
   const summary = element.summary;
   if (value) {
     const valStr = value.toString();
+    const capValStr = capitalize(valStr);
+    const lwrValStr = valStr.toLowerCase();
     const regxp = RegExp(
-      `(${valStr})|(${capitalize(valStr)})|(${valStr.toLowerCase()})`,
+      `(?<![a-zA-Z])((${valStr})|(${capValStr})|(${lwrValStr}))(?![a-zA-Z])`,
       "g",
     );
     const newSummary = summary.replaceAll(regxp, "<...>");
