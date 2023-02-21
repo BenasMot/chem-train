@@ -20,8 +20,8 @@ export default function ElementCard({ element, missing }: ElementCardProps) {
       <Card className={styles.elementCardTop}>
         <Card.Content>
           <Box flex={1} align="space-between" flexWrap="wrap">
-            <DataText size="medium" text={number} />
-            <DataText size="medium" text={phase} />
+            <DataText size="small" text={number} />
+            <DataText size="small" text={phase} />
           </Box>
           <Box flex={1} align="center" direction="vertical">
             <DataText textAlign="center" text={symbol} />
@@ -48,8 +48,8 @@ const SmallCard = ({ title, subtitle }: { title: string, subtitle?: string }) =>
   return (
     <Card className={styles.smallCard}>
       <Card.Content>
-        <Heading size="medium">{title}</Heading>
-        <DataText size="medium" text={subtitle || 'Unknown'} />
+        <Heading size="small">{title}</Heading>
+        <DataText size="tiny" text={subtitle || 'Unknown'} />
       </Card.Content>
     </Card>
   );
