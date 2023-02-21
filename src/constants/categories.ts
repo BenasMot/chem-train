@@ -8,3 +8,11 @@ export const CATEGORIES = [
   "named_by",
   "summary",
 ] as const;
+
+export const TRIVIA_CATEGORIES = [
+  "boil",
+  "melt",
+  "density",
+  "period",
+  "group",
+] as const;
