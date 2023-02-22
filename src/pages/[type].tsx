@@ -4,6 +4,7 @@ import { Variants } from "@/components/Variants";
 import { useElements } from "@/hooks/useElements";
 import { useHydration } from "@/hooks/useHydration";
 import { useValue } from "@/hooks/useValue";
+import { Colors } from "@/styles/Colors";
 import { QuizElement, QuizElementValue } from "@/types/Element";
 import { Box } from "@wix/design-system";
 import { useRouter } from "next/router";
@@ -14,7 +15,7 @@ export default function Type() {
   const [score, setScore] = useState(0);
   const type = useMemo(() => query.type as keyof QuizElement, [query]);
   const [guessed, setGuessed] = useValue<QuizElementValue>(undefined);
-  const { element, correctValue, otherValues } = useElements(type, [score])
+  const { element, correctValue, otherValues } = useElements(type, [score]);
 
   const onGuess = (guess: QuizElementValue) => {
     const isCorrect = element[type] === guess;
@@ -33,17 +34,28 @@ export default function Type() {
   }
 
   return (
-    <main>
+    <Box
+      backgroundColor={Colors.background}
+      direction="vertical"
+      minHeight="100vh"
+    >
       <Header type={type} score={score} />
-      <Box padding="10px 20px" direction="vertical" gap="SP3">
+      <Box
+        padding="10px 20px"
+        direction="vertical"
+        verticalAlign="space-between"
+        flex={1}
+        gap="SP3"
+      >
         <ElementCard element={element} missing={type} />
         <Variants
           correctValue={correctValue}
           otherValues={otherValues}
           onSelect={onGuess}
           correct={guessed}
+          key={score}
         />
       </Box>
-    </main>
+    </Box>
   );
 }

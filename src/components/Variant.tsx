@@ -18,7 +18,7 @@ export const Variant = (
       <Button
         fullWidth
         priority={priority}
-        skin="standard"
+        skin="light"
         size="large"
         disabled={disabled}
         onClick={onClick}

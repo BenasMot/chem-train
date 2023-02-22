@@ -1,3 +1,4 @@
+import { Colors } from "@/styles/Colors";
 import { QuizElement } from "@/types/Element";
 import { capitalize } from "@/utils/capitalize";
 import { Box, Divider, Heading, TextButton } from "@wix/design-system";
@@ -16,24 +17,24 @@ export const Header = ({ type, score }: HeaderProps) => {
   return (
     <>
       <Box
-        flex={1}
         direction="horizontal"
         minHeight="55px"
         verticalAlign="middle"
         padding="0 20px"
+        backgroundColor={Colors.backgroundLight}
       >
         <Box flex={1} align="left">
           {!isHome && (
-            <TextButton size="medium" onClick={onBack}>
+            <TextButton size="medium" onClick={onBack} skin="light">
               {"< Back"}
             </TextButton>
           )}
         </Box>
         <Box flex={3} align="center">
-          <Heading size="large">{title}</Heading>
+          <Heading size="large" light>{title}</Heading>
         </Box>
         <Box flex={1} align="right">
-          <Heading size="large">{score}</Heading>
+          <Heading size="large" light>{score}</Heading>
         </Box>
       </Box>
       <Divider />

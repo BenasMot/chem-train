@@ -12,7 +12,7 @@ export const CategoryButton = ({ category }: CategoryButtonProps) => {
   const onNavigate = () => router.push(`/${category}`);
 
   return (
-    <Box flex={1}>
+    <Box flex={1} align="center">
       <div onClick={onNavigate}>
         <Box
           direction="horizontal"

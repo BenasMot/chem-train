@@ -24,12 +24,12 @@ export const Variants = (
     const reorderedVariants = order.map((index) => variants[index]);
 
     return reorderedVariants;
-  }, [correctValue, otherValues]);
+  }, [correctValue, onSelect, otherValues]);
 
   const hasGuessed = correct !== undefined;
 
   return (
-    <Box flex={1} flexWrap="wrap" align="space-between" gap={2}>
+    <Box flexWrap="wrap" align="space-between" gap={2}>
       {variants.map((props) => (
         <Variant
           {...props}
