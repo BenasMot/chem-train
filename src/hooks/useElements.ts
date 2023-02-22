@@ -28,11 +28,14 @@ const removeValueFromElementSummary = (
     const valStr = value.toString();
     const capValStr = capitalize(valStr);
     const lwrValStr = valStr.toLowerCase();
+    const nonLetterOrStart = "(^|[^a-z])";
+    const nonLetterOrEnd = "([^a-z]|$)";
     const regxp = RegExp(
-      `(?<![a-zA-Z])((${valStr})|(${capValStr})|(${lwrValStr}))(?![a-zA-Z])`,
-      "g",
+      `${nonLetterOrStart}(${valStr}|${capValStr}|${lwrValStr})${nonLetterOrEnd}`,
+      "gi",
     );
-    const newSummary = summary.replaceAll(regxp, "<...>");
+    // const newSummary = summary.replaceAll(regxp, "<...>");
+    const newSummary = summary.replaceAll(regxp, "$1<...>$3");
     return { ...element, summary: newSummary };
   }
   return element;
